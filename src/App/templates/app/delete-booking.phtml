@@ -1,0 +1,18 @@
+<script>
+var bookings = [];
+$.getJSON('/api/booking/get', function(data){
+  $.each(data, function (key, booking) {
+    $('select#id').append($('<option></option>').attr('value', booking.id).text(booking.reason));
+  });
+});
+
+</script>
+
+
+
+<form method="post" action = '/api/booking/delete' />
+  <select id="id" name="id">
+  <option value="">Please select... </option>
+  </select>
+  <input type="submit" />
+</form>

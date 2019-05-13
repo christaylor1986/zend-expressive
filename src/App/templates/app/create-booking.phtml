@@ -1,0 +1,12 @@
+<script>
+$( function() {
+   $( "#datepicker" ).datepicker({dateFormat: "yy-mm-dd"});
+ } );
+</script>
+<form method="post" action = '/api/booking/create' />
+  Username: <input type="text" name="username" /><br />
+  Reason: <input type="text" name="reason" /><br />
+  Start Date (YYYY-MM-DD HH:MM:SS): <input type="text" name="start_date" /><br />
+  End Date (YYYY-MM-DD HH:MM:SS): <input type="text" name="end_date" /><br />
+  <input type="submit" />
+</form>

@@ -1,0 +1,26 @@
+<script>
+var bookings = [];
+$.getJSON('/api/booking/get', function(data){
+  $.each(data, function (key, booking) {
+    $('select#bookings').append($('<option></option>').attr('value', booking.id).text(booking.reason));
+    bookings[booking.id] = booking;
+  });
+
+  $("select#bookings").change(function(){
+    $('div#username').html(bookings[this.value].username);
+    $('div#reason').html(bookings[this.value].reason);
+    $('div#start_date').html(bookings[this.value].startdate);
+    $('div#end_date').html(bookings[this.value].enddate);
+  });
+});
+
+</script>
+
+<select id="bookings">
+<option value="">Please select... </option>
+</select>
+
+<div>Username: </div><div id="username"></div>
+<div>Reason: </div><div id="reason"></div>
+<div>Start Date: </div><div id="start_date"></div>
+<div>End Date: </div><div id="end_date"></div>
